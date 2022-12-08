@@ -27,9 +27,13 @@ layout: page
   {%- endif -%}
 
 </p>
-
-{{ content }}
-
+<article>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>  
+  {{ content }}
+</article>
 {% if page.comments %}
 <div class="pt-5">
   {% include blog/disqus.html %}
