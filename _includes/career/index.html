@@ -38,21 +38,21 @@
   {% for project in site.career %}
 
     {%- assign project_type  = "local" -%}
-    {%- assign project_id    = project.name | slugify -%}
-    {%- assign project_img   = project.image -%}
-    {%- assign project_name  = project.name -%}
-    {%- assign project_desc  = project.description -%}
-    {%- assign project_tools = project.tools -%}
+    {%- assign project_id    = career.name | slugify -%}
+    {%- assign project_img   = career.image -%}
+    {%- assign project_name  = career.name -%}
+    {%- assign project_desc  = career.description -%}
+    {%- assign project_tools = career.tools -%}
 
     {%- if project.external_url -%}
-      {%- assign project_url = project.external_url -%}
+      {%- assign project_url = career.external_url -%}
       {%- assign external    = true -%}
     {%- else -%}
-      {%- assign project_url = project.url | relative_url -%}
+      {%- assign project_url = career.url | relative_url -%}
       {%- assign external    = false -%}
     {%- endif -%}
 
-    {% include projects/project-card.html %}
+    {% include career/project-card.html %}
 
   {% endfor %}
 
