@@ -9,7 +9,7 @@
       {%- if remote_project == repo.name -%}
 
         {%- assign project = repo -%}
-        {%- assign words = career.name | split: '-' -%}
+        {%- assign words = project.name | split: '-' -%}
         
         {%- capture titlecase -%}
           {%- for word in words -%}
@@ -18,12 +18,12 @@
         {%- endcapture -%}
 
         {%- assign project_type  = "remote" -%}
-        {%- assign project_id    = career.name -%}
+        {%- assign project_id    = project.name -%}
         {%- assign project_img   = false -%}
         {%- assign project_name  = titlecase | strip -%}
-        {%- assign project_desc  = career.description -%}
-        {%- assign project_url   = career.html_url -%}
-        {%- assign project_tools = career.topics -%}
+        {%- assign project_desc  = project.description -%}
+        {%- assign project_url   = project.html_url -%}
+        {%- assign project_tools = project.topics -%}
         {%- assign external      = true -%}
 
         {% include career/project-card.html %}
@@ -38,17 +38,17 @@
   {% for project in site.career %}
 
     {%- assign project_type  = "local" -%}
-    {%- assign project_id    = career.name | slugify -%}
-    {%- assign project_img   = career.image -%}
-    {%- assign project_name  = career.name -%}
-    {%- assign project_desc  = career.description -%}
-    {%- assign project_tools = career.tools -%}
+    {%- assign project_id    = project.name | slugify -%}
+    {%- assign project_img   = project.image -%}
+    {%- assign project_name  = project.name -%}
+    {%- assign project_desc  = project.description -%}
+    {%- assign project_tools = project.tools -%}
 
-    {%- if career.external_url -%}
-      {%- assign project_url = career.external_url -%}
+    {%- if project.external_url -%}
+      {%- assign project_url = project.external_url -%}
       {%- assign external    = true -%}
     {%- else -%}
-      {%- assign project_url = career.url | relative_url -%}
+      {%- assign project_url = project.url | relative_url -%}
       {%- assign external    = false -%}
     {%- endif -%}
 
