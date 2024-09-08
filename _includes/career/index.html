@@ -9,7 +9,7 @@
       {%- if remote_project == repo.name -%}
 
         {%- assign project = repo -%}
-        {%- assign words = project.name | split: '-' -%}
+        {%- assign words = career.name | split: '-' -%}
         
         {%- capture titlecase -%}
           {%- for word in words -%}
@@ -18,15 +18,15 @@
         {%- endcapture -%}
 
         {%- assign project_type  = "remote" -%}
-        {%- assign project_id    = project.name -%}
+        {%- assign project_id    = career.name -%}
         {%- assign project_img   = false -%}
         {%- assign project_name  = titlecase | strip -%}
-        {%- assign project_desc  = project.description -%}
-        {%- assign project_url   = project.html_url -%}
-        {%- assign project_tools = project.topics -%}
+        {%- assign project_desc  = career.description -%}
+        {%- assign project_url   = career.html_url -%}
+        {%- assign project_tools = career.topics -%}
         {%- assign external      = true -%}
 
-        {% include projects/project-card.html %}
+        {% include career/project-card.html %}
 
       {%- endif -%}
 
@@ -44,7 +44,7 @@
     {%- assign project_desc  = career.description -%}
     {%- assign project_tools = career.tools -%}
 
-    {%- if project.external_url -%}
+    {%- if career.external_url -%}
       {%- assign project_url = career.external_url -%}
       {%- assign external    = true -%}
     {%- else -%}
